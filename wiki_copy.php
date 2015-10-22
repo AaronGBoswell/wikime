@@ -1,6 +1,7 @@
 <?php
-require 'connect.php';
+require 'silentconnect.php';
 $id = htmlspecialchars($_GET["ID"]);
+$id = $id*10 + 1;
 if ($search = $db->prepare("SELECT href FROM links WHERE ID = ?;")) {
 	$search->bind_param('i',$id);
 }
