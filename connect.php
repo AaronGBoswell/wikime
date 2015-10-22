@@ -3,11 +3,11 @@
     // Press the 'Run' button on the top to start the web server,
     // then click the URL that is emitted to the Output tab of the console.
 
-    $servername = getenv('IP');
-    $username = getenv('C9_USER');
-    $password = "";
+    $servername = "wikime.database.windows.net";
+    $username = "wikime";
+    $password = "Aaggbb17";
     $database = "wikime";
-    $dbport = 3306;
+    $dbport = 1433;
 
     // Create connection
     $db = new mysqli($servername, $username, $password, $database, $dbport);
