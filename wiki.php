@@ -3,7 +3,7 @@ require 'connect.php';
 require 'simple_html_dom.php';
 $Url = 'https://www.reddit.com/r/wikipedia';
 
-foreach(range(1,100) as $i){
+foreach(range(1,2) as $i){
     echo 'here';
     echo $i*25;
     echo $Url . '<br>';
@@ -12,6 +12,7 @@ foreach(range(1,100) as $i){
 
     foreach($html->find('a') as $element){
         $link =  $element->href;
+        echo $link . '<br>';
         if(strpos($link,'wikipedia.org/wiki/')){
             if(strpos($link,'m.wikipedia') === false)
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
