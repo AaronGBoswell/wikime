@@ -3,13 +3,12 @@ require 'connect.php';
 require 'simple_html_dom.php';
 $Url = 'https://www.reddit.com/r/wikipedia';
 
-$str = '';
 foreach(range(1,100) as $i){
     echo 'here';
     echo $i*25;
     echo $Url . '<br>';
     $html = file_get_html($Url); 
-
+	echo $html;
 
     foreach($html->find('a') as $element){
         $link =  $element->href;
@@ -49,9 +48,8 @@ foreach(range(1,100) as $i){
                 echo 'already found <br>';
             }
         } elseif (strpos($link,'www.reddit.com/r/wikipedia/')){
-            echo $link;
             $Url = $link;
-            echo $Url;
+            echo $Url.'<br>';
         }
     }
 }
