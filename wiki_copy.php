@@ -7,6 +7,7 @@ if ($search = $db->prepare("SELECT href FROM links WHERE ID = ?;")) {
 }
 echo 'searched';
 $r = $search->execute();
+echo 'results:'. $search->num_rows;
 $search->bind_results($href);
 while($search->fetch()){
 	echo $href;
