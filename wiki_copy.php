@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 $id = htmlspecialchars($_GET["ID"]);
-echo 'searching';
+echo 'searching: '.$id;
 $search = $db->prepare("SELECT href FROM links WHERE ID = ".$id.";");
 echo 'searched';
 $r = $search->execute();
