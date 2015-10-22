@@ -2,15 +2,15 @@
 require 'connect.php';
 require 'simple_html_dom.php';
 $id = htmlspecialchars($_GET["ID"])
-if ($search = $db->prepare("SELECT * FROM links WHERE id = ?;")) {
+if ($search = $db->prepare("SELECT href FROM links WHERE id = ?;")) {
 	$search->bind_param('i',$id);
 }
 $r = $search->execute();
-if (!$r) {
-	throw new Exception($db->error);
+$search->bind_results($href)
+while($search->fetch()){
+	echo $href;
 }
-$result->get_result();
+$search->close();
 
-echo $result[0][0]
 }
 ?>
