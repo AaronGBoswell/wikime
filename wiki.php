@@ -18,7 +18,7 @@ foreach(range(1,2) as $i){
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
             echo $link;
             echo "1";
-            if ($search = $db->prepare("SELECT * FROM wikime.links WHERE href = ?;")) {
+            if ($search = $db->prepare("SELECT * FROM links WHERE href = ?;")) {
                 $search->bind_param('s',$link);
             }
           	echo "2";
@@ -38,7 +38,7 @@ foreach(range(1,2) as $i){
             echo "6";
                 //mysqli_report(MYSQLI_REPORT_ALL);
 echo "7";
-                if ($insert = $db->prepare("INSERT INTO wikime.links (ID, href, count, timeSpent) values (NULL,?,0,0);")) {
+                if ($insert = $db->prepare("INSERT INTO links (ID, href, count, timeSpent) values (NULL,?,0,0);")) {
     
                     $insert->bind_param('s',$link);
                 }else{
