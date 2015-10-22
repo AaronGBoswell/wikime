@@ -1,4 +1,5 @@
 <?php
 require 'connect.php';
-echo 'f';
+$id = htmlspecialchars($_GET["ID"]);
+echo $id;
 ?>
