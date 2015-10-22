@@ -3,7 +3,7 @@ require 'connect.php';
 require 'simple_html_dom.php';
 $Url = 'https://www.reddit.com/r/wikipedia';
 
-foreach(range(1,2) as $i){
+foreach(range(1,100) as $i){
     echo 'here';
     echo $i*25;
     echo $Url . '<br>';
