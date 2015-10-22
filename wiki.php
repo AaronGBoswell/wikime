@@ -21,6 +21,8 @@ foreach(range(1,2) as $i){
             if ($search = $db->prepare("SELECT * FROM wikime.links WHERE href = ?;")) {
                 $search->bind_param('s',$link);
             }
+          	echo "LJKHKJHKJHGKJGKJHJ";
+
             $result = $search->execute();
             $search->store_result();
             if (!$result) {
