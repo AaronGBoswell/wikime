@@ -17,20 +17,27 @@ foreach(range(1,2) as $i){
             if(strpos($link,'m.wikipedia') === false)
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
             echo $link;
-            echo "LJKHKJHKJHGKJGKJHJ";
+            echo "1";
             if ($search = $db->prepare("SELECT * FROM wikime.links WHERE href = ?;")) {
                 $search->bind_param('s',$link);
             }
-          	echo "LJKHKJHKJHGKJGKJHJ";
+          	echo "2";
 
             $result = $search->execute();
+            echo "3";
+
             $search->store_result();
+            echo "4";
+
             if (!$result) {
                 throw new Exception($db->error);
             }
+            echo "5";
+
             if( $search->num_rows == 0 ){
+            echo "6";
                 //mysqli_report(MYSQLI_REPORT_ALL);
-    
+echo "7";
                 if ($insert = $db->prepare("INSERT INTO wikime.links (ID, href, count, timeSpent) values (NULL,?,0,0);")) {
     
                     $insert->bind_param('s',$link);
@@ -38,15 +45,17 @@ foreach(range(1,2) as $i){
                     echo '<br> prep failedd <br>';
     
                 }
+                echo "8";
                 $result = $insert->execute();
+                echo "9";
                 $insert->store_result();
-    
+    echo "10";
                 if (!$result) {
                     throw new Exception($db->error);
                 }else{
                     echo 'inserted <br>';
                 }
-                   
+                 echo "20";  
     
             }else{
                 echo 'already found <br>';
