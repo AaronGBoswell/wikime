@@ -1,6 +1,5 @@
 <?php
 require 'connect.php';
-require 'simple_html_dom.php';
 $id = htmlspecialchars($_GET["ID"]);
 if ($search = $db->prepare("SELECT href FROM links WHERE id = ?;")) {
 	$search->bind_param('i',$id);
