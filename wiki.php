@@ -13,7 +13,7 @@ foreach(range(1,100) as $i){
 
     foreach($html->find('a') as $element){
         $link =  $element->href;
-        if(strpos($link,'wikipedia.org/wiki/') !== false){
+        if(strpos($link,'wikipedia.org/wiki/')){
             if(strpos($link,'m.wikipedia') === false)
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
             echo $link;
@@ -52,7 +52,7 @@ foreach(range(1,100) as $i){
             echo $link;
             $Url = $link;
             echo $Url;
-        } 
+        }
     }
 }
 ?>
