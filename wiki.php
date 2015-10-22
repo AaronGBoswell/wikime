@@ -17,6 +17,7 @@ foreach(range(1,2) as $i){
             if(strpos($link,'m.wikipedia') === false)
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
             echo $link;
+            echo "LJKHKJHKJHGKJGKJHJ";
             if ($search = $db->prepare("SELECT * FROM wikime.links WHERE href = ?;")) {
                 $search->bind_param('s',$link);
             }
