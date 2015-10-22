@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require 'silentconnect.php';
 $Url = 'https://www.reddit.com/r/wikipedia';
 $link = htmlspecialchars($_GET["href"]);
 if(strpos($link,'wikipedia.org/wiki/')){
