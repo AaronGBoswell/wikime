@@ -7,7 +7,7 @@
     $username = "bd8d497552b1b6";
     $password = "8b66e8a6";
     $database = "mywikirAmWPP81F5";
-    $dbport = 1433;
+    $dbport = 3306;
 
     // Create connection
     $db = new mysqli($servername, $username, $password, $database, $dbport);
