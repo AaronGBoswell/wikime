@@ -14,7 +14,7 @@ foreach(range(1,100) as $i){
         if(strpos($link,'wikipedia.org/wiki/')){
             if(strpos($link,'m.wikipedia') === false)
                 $link = substr_replace($link,'.m',strpos($link,'.wikipedia'),0);
-            if ($search = $db->prepare("SELECT * FROM links WHERE href = ?;")) {
+            if ($search = $db->prepare("SELECT * FROM interestingLinks WHERE href = ?;")) {
                 $search->bind_param('s',$link);
             }
 
@@ -28,7 +28,7 @@ foreach(range(1,100) as $i){
 
             if( $search->num_rows == 0 ){
                 //mysqli_report(MYSQLI_REPORT_ALL);
-                if ($insert = $db->prepare("INSERT INTO links (ID, href, count, timeSpent) values (NULL,?,0,0);")) {
+                if ($insert = $db->prepare("INSERT INTO interestingLinks (ID, href, count, timeSpent) values (NULL,?,0,0);")) {
     
                     $insert->bind_param('s',$link);
                 }else{
